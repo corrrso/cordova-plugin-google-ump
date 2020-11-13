@@ -5,6 +5,9 @@ Google UMP (User Messaging Platform) SDK is used for asking users in the Europea
 
 ## News
 
+**Version 1.1.0 / 2020-11-13:**
+Android version coming soon! If you wish to help, please contact me!
+
 **Version 1.0.0 / 2020-09-11:**
 Initial plugin release.
 
