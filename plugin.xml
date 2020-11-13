@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         id="cordova-plugin-google-ump"
-        version="1.0.0">
+        version="1.1.0">
 	<name>Plugin for Google UMP SDK</name>
 	<description>Cordova wrapper for Google UMP SDK.</description>
 	<author>jellomaster</author>
@@ -11,8 +11,8 @@
 	<repo>https://github.com/jellomaster/cordova-plugin-google-ump</repo>
 	<issue>https://github.com/jellomaster/cordova-plugin-google-ump/issues</issue>
     <dependency id="cordova-plugin-add-swift-support" version="1.7.2"/>
-	
-
+	<dependency id="cordova-plugin-androidx" version="^2.0.0" />
+	<dependency id="cordova-plugin-androidx-adapter" version="^1.1.1" />
 
 	<!-- ios -->
 	<platform name="ios">
@@ -29,5 +29,23 @@
 
  		<source-file src="src/ios/Ump.swift" />
         <framework src="GoogleUserMessagingPlatform" type="podspec" spec="~> 1.1.0" />
+	</platform>
+
+	<platform name="android">
+		<config-file target="config.xml" parent="/*">
+			<feature name="Ump">
+				<param name="android-package" value="org.apache.cordova.ump.Ump" />
+    			<param name="onload" value="true" />
+			</feature>
+		</config-file>
+
+		<js-module name="Ump" src="www/plugin.js">
+			<clobbers target="Ump" />
+		</js-module>
+
+		<preference name="ANDROID_ADS_CONSENT_VERSION" default="1.0.6" />
+		<framework src="com.google.android.ads.consent:consent-library:$ANDROID_ADS_CONSENT_VERSION" />
+
+		<source-file src="src/android/Ump.java" target-dir="src/org/apache/cordova/ump" />
 	</platform>
 </plugin>
